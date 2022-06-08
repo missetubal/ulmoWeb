@@ -9,7 +9,6 @@ export const backgroundColor: Record<LargeButtonProps['buttonType'], string> = {
     secondary: colors.gray100,
     outline: colors.white,
     ghost: colors.transparent,
-    disabled: colors.gray500,
 }
 
 export const justifyContent: Record<LargeButtonProps['iconPosition'], string> = {
@@ -24,8 +23,7 @@ export const Button = styled.button<LargeButtonProps & GeneralStyleProps>`
     display: flex;
     width: ${props=> props.width || 100}%;
     height: ${props=> props.height || 100}%;
-    color: ${props => props.isDisabled ? colors.gray500 : colors.black };
-    background-color:${(props) => (props.isDisabled && !props.buttonType.includes('outline')) ? backgroundColor['disabled'] : backgroundColor[props.buttonType] };
+    background-color:${(props) => (props.isDisabled && !props.buttonType.includes('outline')) ? colors.gray300 : backgroundColor[props.buttonType] };
     border-color:${(props) => !props.buttonType.includes('outline') ? colors.transparent : (props.isDisabled ? colors.gray500 : colors.black)};
     justify-content: ${props => justifyContent[props.iconPosition]};
     padding: 20px 16px;

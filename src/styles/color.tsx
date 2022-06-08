@@ -12,7 +12,7 @@ export default{
     gray100: '#F5F5F5',
 
     yellow500: '#FFC107',
-    yellow400: '#FFCA28',
+    yellow400: '#FEE440',
     yellow300: '#FFD54F',
     yellow200: '#FFE082',
     yellow100: '#FFECB3',
