@@ -1,4 +1,3 @@
-import { cp } from "fs/promises";
 import styled from "styled-components";
 import { colors } from "../../styles";
 import { GeneralStyleProps } from "../../types/general.types";
@@ -11,7 +10,7 @@ export const backgroundColor: Record<LargeButtonProps['buttonType'], string> = {
     ghost: colors.transparent,
 }
 
-export const justifyContent: Record<LargeButtonProps['iconPosition'], string> = {
+export const Align: Record<LargeButtonProps['iconPosition'], string> = {
     'none': 'center',
     'left' : 'space-between',
     'right' : 'space-between',
@@ -24,9 +23,17 @@ export const Button = styled.button<LargeButtonProps & GeneralStyleProps>`
     width: ${props=> props.width || 100}%;
     height: ${props=> props.height || 100}%;
     background-color:${(props) => (props.isDisabled && !props.buttonType.includes('outline')) ? colors.gray300 : backgroundColor[props.buttonType] };
-    border-color:${(props) => !props.buttonType.includes('outline') ? colors.transparent : (props.isDisabled ? colors.gray500 : colors.black)};
-    justify-content: ${props => justifyContent[props.iconPosition]};
+    border:${(props) => !props.buttonType.includes('outline') ? colors.transparent : '2px solid '+(props.isDisabled ? colors.gray500 : colors.black)};
+    justify-content: ${props => Align[props.iconPosition]};
+    align-items: ${props => Align[props.iconPosition]};
     padding: 20px 16px;
     border-radius: 8px;
+    align-items: center;
+    cursor: ${props => props.isDisabled ? 'not-allowed' : 'pointer'};
+`
+
+export const Hidden =styled.div`
+    width: 24px;
+    height: 24px;
 `
 
